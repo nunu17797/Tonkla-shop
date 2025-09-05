@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ต้นกล้าช็อป</title>
+  <style>
+    :root{
+      --bg:#f1f3f5;
+      --card-bg:#ffffff;
+      --muted:#7b7b7b;
+      --shadow: 0 8px 18px rgba(15,15,15,0.08);
+      --radius:10px;
+      --gap:24px;
+      font-family: "Arial", sans-serif;
+    }
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#efefef);
+      padding:30px;
+      color:#111;
+    }
+    .container{ max-width:1200px; margin:0 auto; }
+    header{ margin-bottom:20px; }
+    header h1{ margin:0; font-size:22px; font-weight:bold; }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:var(--gap);
+    }
+    .card{
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 20px 40px rgba(15,15,15,0.12); }
+    .image-wrap{
+      padding:20px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:160px;
+    }
+    .image-wrap img{ max-width:100%; max-height:100%; }
+    .body{ padding:18px; flex:1; display:flex; flex-direction:column; }
+    .title{ font-size:18px; font-weight:bold; margin:0 0 8px; }
+    .details{ font-size:14px; color:var(--muted); flex:1; }
+    .price{ font-weight:bold; margin-top:12px; color:#222; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ต้นกล้าช็อป</h1>
+    </header>
+
+    <main class="grid">
+      <!-- การ์ด 1 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item1.png" alt="Item 1"></div>
+        <div class="body">
+          <h2 class="title">Zombie Chicken [Mythicol]</h2>
+          <div class="details">ทุกๆ 29.26 นาที มีโอกาส 20.68% ที่ผลไม้บริเวณใกล้เคียงจะกลายเป็นซอมบี้ เพิ่มความเร็วในการฟักไข่ 10.34%</div>
+          <div class="price">ราคา 25 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 2 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item2.png" alt="Item 2"></div>
+        <div class="body">
+          <h2 class="title">Echo Frog [Mythical] 3ตัว</h2>
+          <div class="details">ทุกๆ 5 นาที เสียงจะดังและทำให้ต้นไม้บริเวณใกล้เคียงเจริญเติบโตเร็วขึ้นภายใน 24 ชั่วโมง</div>
+          <div class="price">ราคา 89 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 3 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item3.png" alt="Item 3"></div>
+        <div class="body">
+          <h2 class="title">Capybara [Legendary] 3ตัว</h2>
+          <div class="details">สัตว์เลี้ยงทั้งหมดภายในระยะ 15.48 จะไม่สูญเสียความหิวและจะได้รับ 3.48xp ทุก ๆ วินาที</div>
+          <div class="price">ราคา 59 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 4 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item4.png" alt="Item 4"></div>
+        <div class="body">
+          <h2 class="title">Dragonfly [Divine] 3ตัว</h2>
+          <div class="details">ทุกๆ 4.45 นาที จะสุ่มเปลี่ยนผลไม้ 1 ลูก ให้เป็นสีทอง</div>
+          <div class="price">ราคา 159 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 5 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item5.png" alt="Item 5"></div>
+        <div class="body">
+          <h2 class="title">Moon Cat [Legendary] 3ตัว</h2>
+          <div class="details">แมวจะงีบหลับในจุดสุ่มในฟาร์มของคุณ โดยจะปล่อยพลังออร่าที่ทำให้ผลไม้บริเวณใกล้เคียงมีขนาดใหญ่ขึ้น | การเก็บเกีย่วพระจันทร์ ให้โอกาสให้พีชประเภทกลางคืนได้ปลูกซํ้าเมื่อเก็บเกี่ยวแล้ว</div>
+          <div class="price">ราคา 59 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 6 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item6.png" alt="Item 6"></div>
+        <div class="body">
+          <h2 class="title">Corrupted Kitsune 3ตัว
+</h2>
+          <div class="details">ทุกๆ 20:56 นาที จะปล่อยพลังคำสาปใส่ผลไม้ 9 ชนิด ผลไม้แต่ละชนิดมีโอกาส 20.22% ที่จะกลายพันธุ์ด้วยจักระคอร์รัปต์ ซึ่งมีโอกาสน้อยมากที่จะเกิดจักระฟ็อกซ์ไฟร์คอร์รัปต์</div>
+          <div class="price">ราคา 59 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 7 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item7.png" alt="Item 7"></div>
+        <div class="body">
+          <h2 class="title">Raiju [Mythical]</h2>
+          <div class="details">บางครั้งจะกินผลไม้ด้วย Shocked เพื่อรับค่าโบนัส พ่นสายฟ้าลูกโซ่ที่กลายพันธุ์ผลไม้ด้วย Static หรือ Shocked หากเป็นพายุฝนฟ้าคะนอง</div>
+          <div class="price">ราคา 29 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 8 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item8.png" alt="Item 8"></div>
+        <div class="body">
+          <h2 class="title">Moon cat [Legendary]</h2>
+          <div class="details">แมวจะงีบหลับในจุดสุ่มในฟาร์มของคุณ โดยจะปล่อยพลังออร่าที่ทำให้ผลไม้บริเวณใกล้เคียงมีขนาดใหญ่ขึ้น | การเก็บเกีย่วพระจันทร์ ให้โอกาสให้พีชประเภทกลางคืนได้ปลูกซํ้าเมื่อเก็บเกี่ยวแล้ว</div>
+          <div class="price">ราคา 29 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 9 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item9.png" alt="Item 9"></div>
+        <div class="body">
+          <h2 class="title">Lemon Lion [Mythicol] 3ตัว</h2>
+          <div class="details">คำรามและกลายพันธุ์ผลไม้แบบสุ่มด้วยการกลายพันธุ์ของ Brainrot Citrus Roar: มอบประสบการณ์โบนัสให้กับสัตว์เลี้ยงแบบสุ่มเป็นครั้งคราว</div>
+          <div class="price">ราคา 29 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 10 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item10.png" alt="Item 10"></div>
+        <div class="body">
+          <h2 class="title">Golden Goose [Divine] 3ตัว</h2>
+          <div class="details">ทุกๆ 788-300 ต้นไข่ทองคำ จะวางไข่ ต้นหนึ่งต้นที่เริ่มต้นด้วยการกลายพันธุ์แบบฟอร์จูน สามารถเก็บเกี่ยวและกลายพันธุ์ได้เช่นเดียวกับต้นไม้ชนิดอื่นๆ การขายต้นไข่ทองคำอาจใช้การกลายพันธุ์แบบฟอร์จูนกับผลไม้ในสวนของผู้เล่น!</div>
+          <div class="price">ราคา 59 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 11 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item11.png" alt="Item 11"></div>
+        <div class="body">
+          <h2 class="title">Griffin [Divine]</h2>
+          <div class="details">ทุก ๆ 15 นาที มันจะกางปีกออกอย่างโอ้อวดและปล่อยพายุไซโคลนออกมา สัตว์เลี้ยงที่โดนจะมีคูลดาวน์ถูกเลื่อนไปข้างหน้า 60 วินาที และผลไม้ที่โดนจะมีโอกาส 10% ที่จะกลายพันธุ์เป็นไซโคลนิก!</div>
+          <div class="price">ราคา 29 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 12 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item12.png" alt="Item 12"></div>
+        <div class="body">
+          <h2 class="title">French Fry Ferret [Divine] 3ตัว</h2>
+          <div class="details">ทุกๆ 20:00-60:32 นาที เพิ่มเลเวลสัตว์เลี้ยงแบบสุ่ม 1 เลเวล! ความสามารถนี้ไม่สามารถเลียนแบบหรือรีเฟรชได้</div>
+          <div class="price">ราคา 59 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 13 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item13.png" alt="Item 13"></div>
+        <div class="body">
+          <h2 class="title">Griffin [Divine] 3ตัว</h2>
+          <div class="details">ทุก ๆ 15 นาที มันจะกางปีกออกอย่างโอ้อวดและปล่อยพายุไซโคลนออกมา สัตว์เลี้ยงที่โดนจะมีคูลดาวน์ถูกเลื่อนไปข้างหน้า 60 วินาที และผลไม้ที่โดนจะมีโอกาส 10% ที่จะกลายพันธุ์เป็นไซโคลนิก!</div>
+          <div class="price">ราคา 59 เครดิต</div>
+        </div>
+      </div>
+
+      <!-- การ์ด 14 -->
+      <div class="card">
+        <div class="image-wrap"><img src="images/item14.png" alt="Item 14"></div>
+        <div class="body">
+          <h2 class="title">Golden Goose [Divine] 3ตัว</h2>
+          <div class="details">ทุกๆ 788-300 ต้นไข่ทองคำ จะวางไข่ ต้นหนึ่งต้นที่เริ่มต้นด้วยการกลายพันธุ์แบบฟอร์จูน สามารถเก็บเกี่ยวและกลายพันธุ์ได้เช่นเดียวกับต้นไม้ชนิดอื่นๆ การขายต้นไข่ทองคำอาจใช้การกลายพันธุ์แบบฟอร์จูนกับผลไม้ในสวนของผู้เล่น!ฟ.</div>
+          <div class="price">ราคา 29 เครดิต</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
