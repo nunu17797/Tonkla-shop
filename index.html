@@ -19,129 +19,160 @@
   <meta name="twitter:image" content="https://files.catbox.moe/e5sh81.png" />
 
   <style>
-    :root{
-      --bg:#fff8e7;
-      --card-bg:#ffffff;
-      --muted:#7b7b7b;
-      --shadow: 0 6px 16px rgba(0,0,0,0.08);
-      --radius:14px;
-      --gap:26px;
-      font-family: "Arial", sans-serif;
-    }
-    body{
-      margin:0;
-      padding:30px;
-      color:#222;
-      background: 
-        radial-gradient(circle, #ffebcd 10%, transparent 10%) 0 0,
-        radial-gradient(circle, #ffebcd 10%, transparent 10%) 25px 25px,
-        #fff8e7;
-      background-size:50px 50px;
-    }
-    .container{ max-width:1200px; margin:0 auto; }
-    header{ margin-bottom:20px; text-align:center; }
-    header h1{ margin:0; font-size:26px; font-weight:bold; color:#ff6f3c; text-shadow:1px 1px #ffe0d1; }
+  :root{
+    --bg:#1a0000;
+    --card-bg:#2a0000;
+    --muted:#ffcccc;
+    --shadow: 0 6px 16px rgba(255,0,0,0.25);
+    --radius:14px;
+    --gap:26px;
+    font-family: "Arial", sans-serif;
+  }
+  body{
+    margin:0;
+    padding:30px;
+    color:#fff0f0;
+    background: linear-gradient(135deg, #330000 0%, #1a0000 40%, #660000 100%);
+  }
+  .container{ max-width:1200px; margin:0 auto; }
+  header{ margin-bottom:20px; text-align:center; }
+  header h1{ 
+    margin:0; 
+    font-size:30px; 
+    font-weight:bold; 
+    color:#ff3b3b; 
+    text-shadow:2px 2px #660000, 0 0 15px #ff6600, 0 0 30px #ff3300; 
+  }
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:var(--gap);
-    }
-    .card{
-      background:var(--card-bg);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-      border:2px solid #ffedd5;
-    }
-    .card:hover{ 
-      transform: translateY(-10px) scale(1.03); 
-      box-shadow: 0 20px 36px rgba(255,140,50,0.18); 
-    }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:var(--gap);
+  }
+  .card{
+    background:var(--card-bg);
+    border-radius:var(--radius);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(255,50,0,0.4);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+  .card::before {
+    content:"";
+    position:absolute;
+    top:-50%; left:-50%;
+    width:200%; height:200%;
+    background: conic-gradient(from 0deg, 
+      #ff0000, #ff6600, #ffff00, #ff6600, #ff0000);
+    animation: rotateGlow 6s linear infinite;
+    z-index:1;
+  }
+  .card::after {
+    content:"";
+    position:absolute;
+    top:2px; left:2px; right:2px; bottom:2px;
+    background:var(--card-bg);
+    border-radius:calc(var(--radius) - 2px);
+    z-index:2;
+  }
+  .card:hover{ 
+    transform: translateY(-10px) scale(1.05); 
+    box-shadow: 0 0 30px rgba(255,80,0,0.9), 0 0 60px rgba(255,0,0,0.7); 
+  }
 
-    .image-wrap{
-      padding:20px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:160px;
-      background:linear-gradient(145deg,#fff5e1,#fff);
-      border-top-left-radius:var(--radius);
-      border-top-right-radius:var(--radius);
-    }
-    .image-wrap img{ max-width:100%; max-height:100%; border-radius:8px; }
+  @keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 
-    .body{ padding:18px; flex:1; display:flex; flex-direction:column; }
-    .title{ font-size:18px; font-weight:bold; margin:0 0 8px; color:#ff6f3c; }
-    .details{ font-size:14px; color:var(--muted); flex:1; line-height:1.5; }
-    .price{ font-weight:bold; margin-top:12px; color:#16a34a; font-size:15px; }
+  .image-wrap{
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:160px;
+    background:linear-gradient(145deg,#330000,#1a0000);
+    border-top-left-radius:var(--radius);
+    border-top-right-radius:var(--radius);
+    z-index:3;
+    position:relative;
+  }
+  .image-wrap img{ max-width:100%; max-height:100%; border-radius:8px; }
 
-    .social{
-      margin-top:10px;
-      text-align:center;
-    }
-    .fb-icon{
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      box-shadow:0 4px 8px rgba(0,0,0,0.1);
-      transition:transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .fb-icon:hover{
-      transform:scale(1.2) rotate(5deg);
-      box-shadow:0 8px 18px rgba(0,0,0,0.2);
-    }
-    .social h2{
-      font-size:16px;
-      color:#444;
-      margin-top:10px;
-    }
+  .body{ padding:18px; flex:1; display:flex; flex-direction:column; position:relative; z-index:3; }
+  .title{ font-size:18px; font-weight:bold; margin:0 0 8px; color:#ff3b3b; text-shadow:0 0 8px #ff6600,0 0 15px #ff3300; }
+  .details{ font-size:14px; color:var(--muted); flex:1; line-height:1.5; }
+  .price{ font-weight:bold; margin-top:12px; color:#ffcc00; font-size:15px; text-shadow:0 0 5px #ff6600,0 0 12px #ff0000; }
 
-    /* ==== popup style ==== */
-    .popup {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.6);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:999;
-    }
-    .popup-content {
-      background:#fff;
-      padding:20px;
-      border-radius:14px;
-      max-width:400px;
-      text-align:center;
-      position:relative;
-      box-shadow:0 8px 24px rgba(0,0,0,0.2);
-      animation: popupAnim 0.3s ease;
-    }
-    .popup-content h2{
-      color:#ff6f3c;
-      margin-bottom:10px;
-    }
-    .popup-content p{
-      font-size:15px;
-      color:#333;
-    }
-    .close-btn {
-      position:absolute;
-      top:10px; right:15px;
-      font-size:22px;
-      font-weight:bold;
-      color:#555;
-      cursor:pointer;
-    }
-    .close-btn:hover{ color:#ff0000; }
-    @keyframes popupAnim {
-      from { transform:scale(0.8); opacity:0; }
-      to { transform:scale(1); opacity:1; }
-    }
-  </style>
+  .social{
+    margin-top:10px;
+    text-align:center;
+    position:relative;
+    z-index:3;
+  }
+  .fb-icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    box-shadow:0 4px 8px rgba(255,0,0,0.6), 0 0 15px #ff3300;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .fb-icon:hover{
+    transform:scale(1.2) rotate(5deg);
+    box-shadow:0 8px 18px rgba(255,50,0,0.9), 0 0 25px #ff6600;
+  }
+  .social h2{
+    font-size:16px;
+    color:#ffcccc;
+    margin-top:10px;
+    text-shadow:0 0 6px #ff0000;
+  }
+
+  /* ==== popup style ==== */
+  .popup {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(120,0,0,0.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+  }
+  .popup-content {
+    background:#2a0000;
+    padding:20px;
+    border-radius:14px;
+    max-width:400px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 0 20px #ff3300, 0 0 40px #ff6600;
+    animation: popupAnim 0.3s ease;
+  }
+  .popup-content h2{
+    color:#ff3b3b;
+    margin-bottom:10px;
+    text-shadow:0 0 15px #ff6600,0 0 25px #ff0000;
+  }
+  .popup-content p{
+    font-size:15px;
+    color:#ffcccc;
+  }
+  .close-btn {
+    position:absolute;
+    top:10px; right:15px;
+    font-size:22px;
+    font-weight:bold;
+    color:#ff6666;
+    cursor:pointer;
+    text-shadow:0 0 8px #ff0000;
+  }
+  .close-btn:hover{ color:#ff0000; text-shadow:0 0 12px #ff3300; }
+  @keyframes popupAnim {
+    from { transform:scale(0.8); opacity:0; }
+    to { transform:scale(1); opacity:1; }
+  }
+</style>
 </head>
 <body>
   <!-- popup -->
@@ -167,7 +198,7 @@
 
       <!-- ปุ่ม Facebook -->
       <div class="social">
-        <a href="https://www.facebook.com/share/1GWTJ9PmCB/?mibextid=wwXIfr" target="_blank">
+        <a href="">
           <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" 
                alt="Facebook" class="fb-icon">
         </a>
